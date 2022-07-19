@@ -1,8 +1,11 @@
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import AcceptedScreen from "../../components/accepted";
+import RejectedScreen from "../../components/rejected";
 import styles from "../../styles/Quiz.module.scss";
+import buttonStyles from "../../styles/Button.module.scss";
 
 // runs at build time
 export const getStaticProps = async () => {
@@ -68,10 +71,10 @@ export default function Quiz({ data }) {
       <Container>
         <Row>
           <Col>
-            <div>
+            <form>
               {questions.map((question, i) => {
                 return (
-                  <form
+                  <div
                     className={
                       i === currentQuestion && !accepted && !rejected
                         ? styles.show
@@ -84,75 +87,83 @@ export default function Quiz({ data }) {
                         i === currentQuestion ? styles.show : styles.hide
                       }
                     >
-                      <p>{question.question}</p>
-                      {question.options.map((option, i) => {
-                        if (option.display.includes("<img")) {
-                          return (
-                            <div key={i}>
-                              <input
-                                type="radio"
-                                id={option.value}
-                                name={question.question}
-                                value={option.value}
-                                onClick={(e) =>
-                                  handleChange(e, option.isRejection)
-                                }
-                              />
-                              <label
-                                htmlFor={option.value}
-                                dangerouslySetInnerHTML={{
-                                  __html: option.display,
-                                }}
-                              ></label>
-                              <span>{option.value}</span>
-                            </div>
-                          );
-                        } else {
-                          return (
-                            <div key={i}>
-                              <input
-                                type="radio"
-                                id={option.value}
-                                name={question.question}
-                                value={option.value}
-                                onClick={(e) =>
-                                  handleChange(e, option.isRejection)
-                                }
-                              />
-                              <label htmlFor={option.value}>
-                                {option.display}
-                              </label>
-                            </div>
-                          );
+                      <h1 className={styles.question}>{question.question}</h1>
+                      <div
+                        className={
+                          question.options[0].display.includes("<img")
+                            ? styles["image-inputs"]
+                            : styles["yes-or-no-inputs"]
                         }
-                      })}
+                      >
+                        {question.options.map((option, i) => {
+                          if (option.display.includes("<img")) {
+                            return (
+                              <div key={i}>
+                                <input
+                                  type="radio"
+                                  id={option.value.toString()}
+                                  name={question.question}
+                                  value={option.value}
+                                  className={styles["radio-button"]}
+                                  onClick={(e) =>
+                                    handleChange(e, option.isRejection)
+                                  }
+                                />
+                                <label
+                                  htmlFor={option.value.toString()}
+                                  dangerouslySetInnerHTML={{
+                                    __html: option.display,
+                                  }}
+                                ></label>
+                                <p>{option.value}</p>
+                              </div>
+                            );
+                          } else {
+                            return (
+                              <div key={i}>
+                                <label
+                                  htmlFor={
+                                    question.question + option.value.toString()
+                                  }
+                                >
+                                  <input
+                                    type="radio"
+                                    id={
+                                      question.question +
+                                      option.value.toString()
+                                    }
+                                    name={question.question}
+                                    value={option.value}
+                                    className={styles["radio-button"]}
+                                    onClick={(e) =>
+                                      handleChange(e, option.isRejection)
+                                    }
+                                  />
+
+                                  <span>{option.display}</span>
+                                </label>
+                              </div>
+                            );
+                          }
+                        })}
+                      </div>
                     </div>
-                  </form>
+                  </div>
                 );
               })}
-            </div>
+            </form>
             {currentQuestion !== 0 && !accepted && !rejected && (
-              <div>
-                <button onClick={goBack}>previous question</button>
+              <div className={buttonStyles.prev__container}>
+                <button onClick={goBack} className={buttonStyles.prev}>
+                  previous question
+                </button>
               </div>
             )}
             <div className={accepted ? styles.show : styles.hide}>
-              <p>
-                Great news! We have the perfect treatment for your hair loss.
-                Proceed to <a href="https://www.manual.co/">www.manual.co</a>,
-                and prepare to say hello to your new hair!
-              </p>
-              <button onClick={resetAccepted}>go back</button>
+              <AcceptedScreen resetAccepted={resetAccepted} />
             </div>
             <div className={rejected ? styles.show : styles.hide}>
-              <p>
-                Unfortunately, we are unable to prescribe this medication for
-                you. This is because finasteride can alter the PSA levels, which
-                maybe used to monitor for cancer. You should discuss this
-                further with your GP or specialist if you would still like this
-                medication.
-              </p>
-              <button onClick={resetRejected}>go back</button>
+              <RejectedScreen resetRejected={resetRejected} />
             </div>
           </Col>
         </Row>

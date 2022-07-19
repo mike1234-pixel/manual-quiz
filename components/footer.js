@@ -1,15 +1,22 @@
 import Link from "next/link";
+import Image from "next/image";
 import styles from "../styles/Footer.module.scss";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import logo from "../public/images/logos/symbol.png";
+import { FaGoogle, FaFacebookF, FaTwitter } from "react-icons/fa";
 
 export default function Footer() {
   return (
     <footer className={styles.footer}>
       <Container>
         <Row>
-          <Col md={1}></Col>
+          <Col md={1}>
+            <div className={styles.footer__logo}>
+              <Image src={logo} alt="manual logo" />
+            </div>
+          </Col>
           <Col md={{ span: 2, offset: 3 }}>
             <h6>Product</h6>
             <ul>
@@ -82,14 +89,22 @@ export default function Footer() {
           </Col>
           <Col md={2}>
             <h6>Follow Us</h6>
-            <a href="https://www.facebook.com/MenofManual" target="_blank">
-              fb
+            <a
+              className={styles.footer__social}
+              href="https://www.facebook.com/MenofManual"
+              target="_blank"
+            >
+              <FaFacebookF style={{ width: 12.5, height: 20 }} />
             </a>
-            <a href="" target="_blank">
-              google
+            <a className={styles.footer__social} href="" target="_blank">
+              <FaGoogle style={{ width: 18, height: 18 }} />
             </a>
-            <a href="https://twitter.com/MenofManual" target="_blank">
-              twitter
+            <a
+              className={styles.footer__social}
+              href="https://twitter.com/MenofManual"
+              target="_blank"
+            >
+              <FaTwitter style={{ width: 21, height: 17 }} />
             </a>
           </Col>
         </Row>

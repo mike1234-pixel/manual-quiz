@@ -1,5 +1,9 @@
 .footer {
     background: var(--green);
+    padding: 70px 0 80px;
+    &__logo {
+        width: 75px;
+    }
     h6 {
         font-weight: 700;
         font-size: 10px;
@@ -16,5 +20,9 @@
             font-size: 16px;
             line-height: 30px;
         }
+    }
+    &__social {
+        color: var(--burgundy);
+        margin-right: 30px;
     }
 }

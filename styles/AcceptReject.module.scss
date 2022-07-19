@@ -1,0 +1,21 @@
+.accepted, .rejected {
+    padding-top: 60px;
+    p {
+        font-size: 50px;
+        line-height: 60px;
+        text-align: center;
+        font-weight: 500;
+        @media (max-width: 767px) {
+            font-size: 35px;
+            line-height: 40px;
+        }
+        a {
+            color: var(--black);
+            transition: all 0.2s;
+            text-decoration: underline;
+            &:hover, &:focus, &:active {
+                color: var(--burgundy);
+            }
+        }
+    }
+}

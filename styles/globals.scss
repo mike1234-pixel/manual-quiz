@@ -1,6 +1,27 @@
+
+@font-face {
+  font-family: TT-Norms;
+  font-weight: 200;
+  src: url("../public/fonts/TT-Norms/TTNorms-ExtraLight.otf") format("opentype");
+}
+
+@font-face {
+  font-family: TT-Norms;
+  font-weight: 300;
+  src: url("../public/fonts/TT-Norms/TTNorms-Light.otf") format("opentype");
+}
+
+
 @font-face {
   font-family: TT-Norms;
   font-weight: 400;
+  src: url("../public/fonts/TT-Norms/TTNorms-Regular.otf") format("opentype");
+}
+
+
+@font-face {
+  font-family: TT-Norms;
+  font-weight: 500;
   src: url("../public/fonts/TT-Norms/TTNorms-Medium.otf") format("opentype");
 }
 
@@ -10,13 +31,27 @@
   src: url("../public/fonts/TT-Norms/TTNorms-Bold.otf") format("opentype");
 }
 
+@font-face {
+  font-family: TT-Norms;
+  font-weight: 800;
+  src: url("../public/fonts/TT-Norms/TTNorms-ExtraBold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: TT-Norms;
+  font-weight: 900;
+  src: url("../public/fonts/TT-Norms/TTNorms-Black.otf") format("opentype");
+}
+
 :root {
+  --black: #000000;
   --dark: #0B3B3C;
   --burgundy: #7E0707;
   --white: #FFFFFF;
   --grey: #6D8A83;
   --light-grey: #F3F7F4;
   --green: #E9EFE9;
+  --blue: #30d9ff;
 }
 
 html,

@@ -1,18 +1,31 @@
 .category {
   padding: 90px 0;
   position: relative;
+  @media (max-width: 767px) {
+    padding: 0 0 70px;
+  }
     &__text {
       height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      h3 {
+        max-width: 310px;
+      }
+      p {
+        //max-width: 372px;
+        max-width: 335px;
+      }
     }
     &__tag {
+      font-size: 10px;
+      line-height: 15px;
       text-transform: uppercase;
       color: var(--grey);
       letter-spacing: 0.15em;
       display: inline-block;
       margin-bottom: 10px;
+      font-weight: 500;
     }
     &__number {
       font-size: 450px;
@@ -22,8 +35,21 @@
       transform: translate(-50%, -50%);
       color: var(--light-grey);
       z-index: -1;
+      font-weight: 500;
+      @media (max-width: 767px) {
+        position: static;
+        font-size: 50px;
+        line-height: 50px;
+        margin-left: 30px;
+        margin-bottom: 30px;
+        display: inline-block;
+        transform: none;
+      }
+      @media (max-width: 576px) {
+        margin-left: 15px;
+      }
       &--right {
-        left: 51%;
+        left: 53.5%;
       }
       &--left {
         left: 41%;
