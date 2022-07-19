@@ -1,0 +1,35 @@
+.category {
+  padding: 90px 0;
+  position: relative;
+    &__text {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    &__tag {
+      text-transform: uppercase;
+      color: var(--grey);
+      letter-spacing: 0.15em;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+    &__number {
+      font-size: 450px;
+      line-height: 450px;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      color: var(--light-grey);
+      z-index: -1;
+      &--right {
+        left: 51%;
+      }
+      &--left {
+        left: 41%;
+      }
+      
+
+    }
+  }
+

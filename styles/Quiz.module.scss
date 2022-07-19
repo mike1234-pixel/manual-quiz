@@ -1,0 +1,17 @@
+.quiz {
+    form > div {
+         transition: all 0.2s;
+         display: grid;
+         grid-template-columns: repeat(4, 1fr);
+         grid-gap: 30px;
+    }
+}
+
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+
+}
