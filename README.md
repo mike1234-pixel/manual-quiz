@@ -18,7 +18,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Quiz
 
-...
+I've used static site generation as it's my expectation that the questions won't change on a frequent basis.
 
 ## Deploy on Vercel
 

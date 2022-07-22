@@ -17,21 +17,24 @@ export default function Category(props) {
 
   return (
     <section className={styles.category}>
-      <span
-        className={
-          styles["category__number"] +
-          " " +
-          (sectionNumber % 2 !== 0
-            ? styles["category__number--right"]
-            : styles["category__number--left"])
-        }
-      >
-        {sectionNumber < 10 ? "0" + sectionNumber : sectionNumber}
-      </span>
       <Container>
         <Row>
-          <Col md={{ span: 4, offset: 1, order: imageOrder }}>
+          <Col
+            md={{ span: 4, offset: 1, order: imageOrder }}
+            className={styles["category__image-column"]}
+          >
             <Image src={img} alt={categoryName} />
+            <span
+              className={
+                styles["category__number"] +
+                " " +
+                (sectionNumber % 2 !== 0
+                  ? styles["category__number--right"]
+                  : styles["category__number--left"])
+              }
+            >
+              {sectionNumber < 10 ? "0" + sectionNumber : sectionNumber}
+            </span>
           </Col>
           <Col md={{ span: 4, offset: 1, order: textOrder }}>
             <div className={styles.category__text}>

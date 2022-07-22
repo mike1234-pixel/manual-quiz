@@ -17,7 +17,7 @@ export default function Footer() {
               <Image src={logo} alt="manual logo" />
             </div>
           </Col>
-          <Col md={{ span: 2, offset: 3 }}>
+          <Col sm={6} md={{ span: 2, offset: 3 }}>
             <h6>Product</h6>
             <ul>
               <li>
@@ -42,7 +42,7 @@ export default function Footer() {
               </li>
             </ul>
           </Col>
-          <Col md={2}>
+          <Col sm={6} md={2}>
             <h6>Company</h6>
             <ul>
               <li>
@@ -67,7 +67,7 @@ export default function Footer() {
               </li>
             </ul>
           </Col>
-          <Col md={2}>
+          <Col sm={6} md={2}>
             <h6>Info</h6>
             <ul>
               <li>
@@ -87,7 +87,7 @@ export default function Footer() {
               </li>
             </ul>
           </Col>
-          <Col md={2}>
+          <Col sm={6} md={2}>
             <h6>Follow Us</h6>
             <a
               className={styles.footer__social}

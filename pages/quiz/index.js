@@ -2,8 +2,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { useState } from "react";
-import AcceptedScreen from "../../components/accepted";
-import RejectedScreen from "../../components/rejected";
+import ResultsScreen from "../../components/results";
 import styles from "../../styles/Quiz.module.scss";
 import buttonStyles from "../../styles/Button.module.scss";
 
@@ -24,7 +23,7 @@ export default function Quiz({ data }) {
   const questions = deserializedData.questions;
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [inputs, setInputs] = useState([]); // all selected answers are stored here
+  const [inputs, setInputs] = useState([]); // all selected answers are stored here, this also accounts for changed answers. not required for the quiz functionality but the data is here in case it needs to be saved somewhere at a later point.
   const [rejected, setRejected] = useState(false);
   const [accepted, setAccepted] = useState(false);
 
@@ -160,10 +159,10 @@ export default function Quiz({ data }) {
               </div>
             )}
             <div className={accepted ? styles.show : styles.hide}>
-              <AcceptedScreen resetAccepted={resetAccepted} />
+              <ResultsScreen resetFunction={resetAccepted} accepted={true} />
             </div>
             <div className={rejected ? styles.show : styles.hide}>
-              <RejectedScreen resetRejected={resetRejected} />
+              <ResultsScreen resetFunction={resetRejected} accepted={false} />
             </div>
           </Col>
         </Row>

@@ -1,6 +1,5 @@
 .category {
   padding: 90px 0;
-  position: relative;
   @media (max-width: 767px) {
     padding: 0 0 70px;
   }
@@ -27,6 +26,9 @@
       margin-bottom: 10px;
       font-weight: 500;
     }
+    &__image-column {
+      position: relative;
+    }
     &__number {
       font-size: 450px;
       line-height: 450px;
@@ -40,19 +42,15 @@
         position: static;
         font-size: 50px;
         line-height: 50px;
-        margin-left: 30px;
         margin-bottom: 30px;
         display: inline-block;
         transform: none;
       }
-      @media (max-width: 576px) {
-        margin-left: 15px;
-      }
       &--right {
-        left: 53.5%;
+        right: -595px;
       }
       &--left {
-        left: 41%;
+        left: -195px;
       }
       
 

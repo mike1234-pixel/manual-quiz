@@ -3,6 +3,9 @@
     padding: 70px 0 80px;
     &__logo {
         width: 75px;
+        @media (max-width: 767px) {
+            margin-bottom: 30px;
+        }
     }
     h6 {
         font-weight: 700;
@@ -15,6 +18,9 @@
     ul {
         list-style: none;
         padding-left: 0;
+        @media (max-width: 767px) {
+            margin-bottom: 30px;
+        }
         li {
             margin-bottom: 20px;
             font-size: 16px;
@@ -24,5 +30,8 @@
     &__social {
         color: var(--burgundy);
         margin-right: 30px;
+        @media (max-width: 1199px) {
+            margin-right: 15px;
+        }
     }
 }
