@@ -93,16 +93,18 @@ export default function Footer() {
               className={styles.footer__social}
               href="https://www.facebook.com/MenofManual"
               target="_blank"
+              rel="noreferrer"
             >
               <FaFacebookF style={{ width: 12.5, height: 20 }} />
             </a>
-            <a className={styles.footer__social} href="" target="_blank">
+            <a className={styles.footer__social}>
               <FaGoogle style={{ width: 18, height: 18 }} />
             </a>
             <a
               className={styles.footer__social}
               href="https://twitter.com/MenofManual"
               target="_blank"
+              rel="noreferrer"
             >
               <FaTwitter style={{ width: 21, height: 17 }} />
             </a>
